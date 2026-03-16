@@ -1,6 +1,6 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
-const lighthouse = require('lighthouse/lighthouse-core/fraggle-rock/api.js');
+const { startFlow } = require('lighthouse');
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
@@ -12,11 +12,11 @@ async function captureReport() {
     });
 
     const page = await browser.newPage();
-    const baseURL = process.env.TEST_TARGET_URL || "http://localhost/";
+    const baseURL = "http://localhost/";
 
     await page.setDefaultTimeout(30000);
 
-    const flow = await lighthouse.startFlow(page, {
+    const flow = await startFlow(page, {
         name: 'Demoblaze Audit v9.6.8',
         configContext: {
             settingsOverrides: {
