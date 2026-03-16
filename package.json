@@ -1,0 +1,11 @@
+{
+  "name": "lighthouse-perf-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test:flow": "node perfTest.js"
+  },
+  "devDependencies": {
+    "puppeteer": "^22.0.0",
+    "lighthouse": "^11.0.0"
+  }
+}
